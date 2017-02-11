@@ -6,6 +6,14 @@ exclude:
   languages
 
 mapping:
-  Andreas Isaak <info@andreas-isaak.de>: Andreas Isaak <andy.jared@googlemail.com>
-  Stefan Heimes <stefan_heimes@hotmail.com>: Stefan heimes <stefan_heimes@hotmail.com>
-  Christopher Boelter <christopher@boelter.eu>: cboelter <christopher@boelter.eu>
+  "Andreas Isaak <info@andreas-isaak.de>": "Andreas Isaak <andy.jared@googlemail.com>"
+  "Stefan Heimes <stefan_heimes@hotmail.com>":
+    - "Stefan heimes <stefan_heimes@hotmail.com>"
+    - "chibineko <stefan_heimes@hotmail.com>"
+    - "stefanheimes <stefan_heimes@hotmail.com>"
+    - "Stefan Heimes <cms@men-at-work.de>"
+  "Christopher Boelter <christopher@boelter.eu>":
+    - "cogizz <c.boelter@cogizz.de>"
+    - "cboelter <christopher@boelter.eu>"
+    - "Christopher Boelter <c.boelter@cogizz.de>"
+    - "Christopher Bölter <c.boelter@cogizz.de>"
