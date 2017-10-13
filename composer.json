@@ -57,7 +57,7 @@
   "extra": {
     "contao": {
       "symlinks": {
-        "contao": "system/modules/metamodelsattribute_text"
+        "contao": "src/Resources/contao/languages"
       },
       "transifex": {
         "project": "metamodels",
