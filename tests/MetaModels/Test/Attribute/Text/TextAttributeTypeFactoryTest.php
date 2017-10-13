@@ -24,12 +24,12 @@ namespace MetaModels\Test\Attribute\Text;
 use MetaModels\Attribute\IAttributeTypeFactory;
 use MetaModels\Attribute\Text\AttributeTypeFactory;
 use MetaModels\IMetaModel;
-use MetaModels\Test\Attribute\AttributeTypeFactoryTest;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Test the attribute factory.
  */
-class TextAttributeTypeFactoryTest extends AttributeTypeFactoryTest
+class TextAttributeTypeFactoryTest extends TestCase
 {
     /**
      * Mock a MetaModel.
@@ -44,11 +44,7 @@ class TextAttributeTypeFactoryTest extends AttributeTypeFactoryTest
      */
     protected function mockMetaModel($tableName, $language, $fallbackLanguage)
     {
-        $metaModel = $this->getMock(
-            'MetaModels\MetaModel',
-            array(),
-            array(array())
-        );
+        $metaModel = $this->getMockForAbstractClass('MetaModels\IMetaModel');
 
         $metaModel
             ->expects($this->any())
@@ -83,7 +79,7 @@ class TextAttributeTypeFactoryTest extends AttributeTypeFactoryTest
      *
      * @return void
      */
-    public function testCreateSelect()
+    public function testCreateAttributeInstance()
     {
         $factory   = new AttributeTypeFactory();
         $values    = array(
