@@ -12,6 +12,7 @@
  *
  * @package    MetaModels
  * @subpackage AttributeText
+ * @author     Christian Schiffler <c.schiffler@cyberspectrum.de>
  * @author     Christopher Boelter <christopher@boelter.eu>
  * @author     Ingolf Steinhardt <info@e-spin.de>
  * @copyright  2012-2017 The MetaModels team.

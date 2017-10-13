@@ -43,8 +43,13 @@
     "contao/manager-bundle": "~4.4"
   },
   "autoload": {
-    "psr-0": {
-      "MetaModels": "src"
+    "psr-4": {
+      "MetaModels\\Attribute\\Text\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "MetaModels\\Attribute\\Text\\Test\\": "tests"
     }
   },
   "extra": {

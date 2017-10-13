@@ -19,7 +19,7 @@
  * @filesource
  */
 
-namespace MetaModels\Test\Attribute\Text;
+namespace MetaModels\Attribute\Text\Test;
 
 use MetaModels\Attribute\Text\Text;
 use MetaModels\IMetaModel;
