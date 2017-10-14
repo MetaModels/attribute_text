@@ -13,29 +13,28 @@
  * @package    MetaModels
  * @subpackage AttributeText
  * @author     Christian Schiffler <c.schiffler@cyberspectrum.de>
- * @author     Andreas Isaak <info@andreas-isaak.de>
- * @author     Ingolf Steinhardt <info@e-spin.de>
- * @author     Stefan Heimes <stefan_heimes@hotmail.com>
  * @copyright  2012-2017 The MetaModels team.
  * @license    https://github.com/MetaModels/attribute_text/blob/master/LICENSE LGPL-3.0
  * @filesource
  */
 
-namespace MetaModels\Attribute\Text;
+namespace MetaModels\Attribute\Text\DependencyInjection\CompilerPass;
 
-use MetaModels\Attribute\Text\DependencyInjection\CompilerPass\AddAttributeFactoryPass;
+use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Symfony\Component\DependencyInjection\Reference;
 
 /**
- * This is the bundle class.
+ * This class adds the attribute factory to the MetaModels factory.
  */
-class MetaModelsAttributeTextBundle extends Bundle
+class AddAttributeFactoryPass implements CompilerPassInterface
 {
-    public function build(ContainerBuilder $container)
+    /**
+     * {@inheritDoc}
+     */
+    public function process(ContainerBuilder $container)
     {
-        parent::build($container);
-
-        $container->addCompilerPass(new AddAttributeFactoryPass());
+        $attributeFactory = $container->getDefinition('metamodels.attribute.factory');
+        $attributeFactory->addMethodCall('addTypeFactory', [new Reference('metamodels.attribute_text.factory')]);
     }
 }

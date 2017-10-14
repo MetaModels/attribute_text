@@ -23,27 +23,12 @@
 namespace MetaModels\Attribute\Text;
 
 use ContaoCommunityAlliance\DcGeneral\Contao\View\Contao2BackendView\Event\GetPropertyOptionsEvent;
-use MetaModels\DcGeneral\Events\BaseSubscriber;
 
 /**
  * Handles event operations on tl_metamodel_dcasetting.
  */
-class BackendSubscriber extends BaseSubscriber
+class BackendSubscriber
 {
-    /**
-     * Register all listeners to handle creation of a data container.
-     *
-     * @return void
-     */
-    protected function registerEventsInDispatcher()
-    {
-        $this
-            ->addListener(
-                GetPropertyOptionsEvent::NAME,
-                array($this, 'getRgxpOptions')
-            );
-    }
-
     /**
      * Retrieve the options for the attributes.
      *

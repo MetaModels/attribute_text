@@ -1,1 +1,8 @@
 services:
+    metamodels.attribute_text.factory:
+        class: MetaModels\Attribute\Text\AttributeTypeFactory
+
+    metamodels.attribute_text.backend.rgxp_listener:
+        class: MetaModels\Attribute\Text\BackendSubscriber
+        tags:
+            - { name: kernel.event_listener, event: dc-general.view.contao2backend.get-property-options, method: getRgxpOptions }
