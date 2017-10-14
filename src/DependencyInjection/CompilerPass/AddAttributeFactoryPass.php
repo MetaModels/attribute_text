@@ -34,7 +34,7 @@ class AddAttributeFactoryPass implements CompilerPassInterface
      */
     public function process(ContainerBuilder $container)
     {
-        $attributeFactory = $container->getDefinition('metamodels.attribute.factory');
+        $attributeFactory = $container->getDefinition('metamodels.attribute_factory');
         $attributeFactory->addMethodCall('addTypeFactory', [new Reference('metamodels.attribute_text.factory')]);
     }
 }
