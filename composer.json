@@ -55,14 +55,12 @@
     }
   },
   "extra": {
+    "contao-manager-plugin": "MetaModels\\Attribute\\Text\\ContaoManager\\Plugin",
     "contao": {
-      "symlinks": {
-        "contao": "src/Resources/contao/languages"
-      },
       "transifex": {
         "project": "metamodels",
         "prefix": "attribute_text-",
-        "languages_cto": "contao/languages",
+        "languages_cto": "src/Resources/contao/languages",
         "languages_tx": ".tx"
       }
     },
