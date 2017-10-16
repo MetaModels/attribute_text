@@ -23,8 +23,6 @@
 
 namespace MetaModels\Attribute\Text;
 
-use MetaModels\Attribute\Text\DependencyInjection\CompilerPass\AddAttributeFactoryPass;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
@@ -32,10 +30,4 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  */
 class MetaModelsAttributeTextBundle extends Bundle
 {
-    public function build(ContainerBuilder $container)
-    {
-        parent::build($container);
-
-        $container->addCompilerPass(new AddAttributeFactoryPass());
-    }
 }
