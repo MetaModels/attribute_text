@@ -22,14 +22,11 @@
  * @filesource
  */
 
-$GLOBALS['TL_DCA']['tl_metamodel_dcasetting']['metasubselectpalettes']['attr_id']['text'] = array
-(
-    'presentation' => array
-    (
+$GLOBALS['TL_DCA']['tl_metamodel_dcasetting']['metasubselectpalettes']['attr_id']['text'] = [
+    'presentation' => [
         'tl_class',
-    ),
-    'functions'    => array
-    (
+    ],
+    'functions'    => [
         'mandatory',
         'allowHtml',
         'preserveTags',
@@ -37,22 +34,20 @@ $GLOBALS['TL_DCA']['tl_metamodel_dcasetting']['metasubselectpalettes']['attr_id'
         'trailingSlash',
         'spaceToUnderscore',
         'rgxp',
-    ),
-    'overview'     => array
-    (
+    ],
+    'overview'     => [
         'filterable',
         'searchable',
-    )
-);
+    ]
+];
 
-$GLOBALS['TL_DCA']['tl_metamodel_dcasetting']['fields']['rgxp'] = array
-(
+$GLOBALS['TL_DCA']['tl_metamodel_dcasetting']['fields']['rgxp'] = [
     'label'     => &$GLOBALS['TL_LANG']['tl_metamodel_dcasetting']['rgxp'],
     'exclude'   => true,
     'inputType' => 'select',
-    'eval'      => array
-    (
+    'sql'       => 'varchar(10) NOT NULL default \'\'',
+    'eval'      => [
         'tl_class'           => 'clr',
         'includeBlankOption' => true
-    )
-);
+    ]
+];
