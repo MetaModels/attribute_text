@@ -22,7 +22,9 @@
 
 namespace MetaModels\Attribute\Text;
 
+use Doctrine\DBAL\Driver\Connection;
 use MetaModels\Attribute\AbstractAttributeTypeFactory;
+use MetaModels\Helper\TableManipulator;
 
 /**
  * Attribute type factory for text attributes.
@@ -30,13 +32,46 @@ use MetaModels\Attribute\AbstractAttributeTypeFactory;
 class AttributeTypeFactory extends AbstractAttributeTypeFactory
 {
     /**
-     * {@inheritDoc}
+     * The connection.
+     *
+     * @var Connection
      */
-    public function __construct()
+    private $connection;
+
+    /**
+     * The table manipulator.
+     *
+     * @var TableManipulator
+     */
+    private $tableManipulator;
+
+    /**
+     * {@inheritDoc}
+     *
+     * @param Connection       $connection       The database connection.
+     * @param TableManipulator $tableManipulator The table manipulator.
+     */
+    public function __construct(Connection $connection, TableManipulator $tableManipulator)
     {
         parent::__construct();
+        $this->connection       = $connection;
+        $this->tableManipulator = $tableManipulator;
+
         $this->typeName  = 'text';
         $this->typeIcon  = 'bundles/metamodelsattributetextbundle/text.png';
         $this->typeClass = 'MetaModels\Attribute\Text\Text';
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function createInstance($information, $metaModel)
+    {
+        return new $this->typeClass(
+            $metaModel,
+            $information,
+            $this->connection,
+            $this->tableManipulator
+        );
     }
 }
