@@ -15,6 +15,7 @@
  * @author     Christian Schiffler <c.schiffler@cyberspectrum.de>
  * @author     Christopher Boelter <christopher@boelter.eu>
  * @author     Ingolf Steinhardt <info@e-spin.de>
+ * @author     David Molineus <david.molineus@netzmacht.de>
  * @copyright  2012-2017 The MetaModels team.
  * @license    https://github.com/MetaModels/attribute_text/blob/master/LICENSE LGPL-3.0
  * @filesource
@@ -32,20 +33,6 @@ use MetaModels\Helper\TableManipulator;
 class AttributeTypeFactory extends AbstractAttributeTypeFactory
 {
     /**
-     * The connection.
-     *
-     * @var Connection
-     */
-    private $connection;
-
-    /**
-     * The table manipulator.
-     *
-     * @var TableManipulator
-     */
-    private $tableManipulator;
-
-    /**
      * {@inheritDoc}
      *
      * @param Connection       $connection       The database connection.
@@ -53,25 +40,10 @@ class AttributeTypeFactory extends AbstractAttributeTypeFactory
      */
     public function __construct(Connection $connection, TableManipulator $tableManipulator)
     {
-        parent::__construct();
-        $this->connection       = $connection;
-        $this->tableManipulator = $tableManipulator;
+        parent::__construct($connection, $tableManipulator);
 
         $this->typeName  = 'text';
         $this->typeIcon  = 'bundles/metamodelsattributetextbundle/text.png';
         $this->typeClass = 'MetaModels\Attribute\Text\Text';
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function createInstance($information, $metaModel)
-    {
-        return new $this->typeClass(
-            $metaModel,
-            $information,
-            $this->connection,
-            $this->tableManipulator
-        );
     }
 }
