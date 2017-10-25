@@ -24,13 +24,13 @@
 namespace MetaModels\Attribute\Text;
 
 use Doctrine\DBAL\Driver\Connection;
-use MetaModels\Attribute\AbstractAttributeTypeFactory;
+use MetaModels\Attribute\AbstractSimpleAttributeTypeFactory;
 use MetaModels\Helper\TableManipulator;
 
 /**
  * Attribute type factory for text attributes.
  */
-class AttributeTypeFactory extends AbstractAttributeTypeFactory
+class AttributeTypeFactory extends AbstractSimpleAttributeTypeFactory
 {
     /**
      * {@inheritDoc}
