@@ -13,6 +13,7 @@
  * @package    MetaModels
  * @subpackage AttributeText
  * @author     Christian Schiffler <c.schiffler@cyberspectrum.de>
+ * @author     Sven Baumann <baumann.sv@gmail.com>
  * @copyright  2012-2017 The MetaModels team.
  * @license    https://github.com/MetaModels/attribute_text/blob/master/LICENSE LGPL-3.0
  * @filesource
@@ -24,7 +25,7 @@ use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
 use MetaModels\Attribute\Text\MetaModelsAttributeTextBundle;
-use MetaModels\MetaModelsCoreBundle;
+use MetaModels\CoreBundle\MetaModelsCoreBundle;
 
 /**
  * Plugin for the Contao Manager.
@@ -43,7 +44,7 @@ class Plugin implements BundlePluginInterface
                         MetaModelsCoreBundle::class
                     ]
                 )
-                ->setReplace(['metamodels'])
+                ->setReplace(['metamodelsattribute_text'])
         ];
     }
 }
