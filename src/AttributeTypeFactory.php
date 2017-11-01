@@ -43,7 +43,7 @@ class AttributeTypeFactory extends AbstractSimpleAttributeTypeFactory
         parent::__construct($connection, $tableManipulator);
 
         $this->typeName  = 'text';
-        $this->typeIcon  = 'bundles/metamodelsattributetextbundle/text.png';
+        $this->typeIcon  = 'bundles/metamodelsattributetext/text.png';
         $this->typeClass = 'MetaModels\Attribute\Text\Text';
     }
 }
