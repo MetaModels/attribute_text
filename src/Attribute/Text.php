@@ -21,7 +21,7 @@
  * @filesource
  */
 
-namespace MetaModels\Attribute\Text;
+namespace MetaModels\AttributeTextBundle\Attribute;
 
 use MetaModels\Attribute\BaseSimple;
 

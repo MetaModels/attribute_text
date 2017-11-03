@@ -21,9 +21,9 @@
  * @filesource
  */
 
-namespace MetaModels\Attribute\Text;
+namespace MetaModels\AttributeTextBundle\Attribute;
 
-use Doctrine\DBAL\Driver\Connection;
+use Doctrine\DBAL\Connection;
 use MetaModels\Attribute\AbstractSimpleAttributeTypeFactory;
 use MetaModels\Helper\TableManipulator;
 
@@ -44,6 +44,6 @@ class AttributeTypeFactory extends AbstractSimpleAttributeTypeFactory
 
         $this->typeName  = 'text';
         $this->typeIcon  = 'bundles/metamodelsattributetext/text.png';
-        $this->typeClass = 'MetaModels\Attribute\Text\Text';
+        $this->typeClass = Text::class;
     }
 }
