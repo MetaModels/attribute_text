@@ -44,11 +44,7 @@ class TextAttributeTypeFactoryTest extends AttributeTypeFactoryTest
      */
     protected function mockMetaModel($tableName, $language, $fallbackLanguage)
     {
-        $metaModel = $this->getMock(
-            'MetaModels\MetaModel',
-            array(),
-            array(array())
-        );
+        $metaModel = $this->getMockForAbstractClass(IMetaModel::class);
 
         $metaModel
             ->expects($this->any())

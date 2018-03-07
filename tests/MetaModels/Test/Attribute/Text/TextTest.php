@@ -22,11 +22,13 @@
 namespace MetaModels\Test\Attribute\Text;
 
 use MetaModels\Attribute\Text\Text;
+use MetaModels\IMetaModel;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Unit tests to test class Text.
  */
-class TextTest extends \PHPUnit_Framework_TestCase
+class TextTest extends TestCase
 {
     /**
      * Mock a MetaModel.
@@ -38,11 +40,7 @@ class TextTest extends \PHPUnit_Framework_TestCase
      */
     protected function mockMetaModel($language, $fallbackLanguage)
     {
-        $metaModel = $this->getMock(
-            'MetaModels\MetaModel',
-            array(),
-            array(array())
-        );
+        $metaModel = $this->getMockForAbstractClass(IMetaModel::class);
 
         $metaModel
             ->expects($this->any())
