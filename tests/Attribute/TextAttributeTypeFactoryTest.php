@@ -3,7 +3,7 @@
 /**
  * This file is part of MetaModels/attribute_text.
  *
- * (c) 2012-2017 The MetaModels team.
+ * (c) 2012-2018 The MetaModels team.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -15,7 +15,8 @@
  * @author     Christian Schiffler <c.schiffler@cyberspectrum.de>
  * @author     Ingolf Steinhardt <info@e-spin.de>
  * @author     David Molineus <david.molineus@netzmacht.de>
- * @copyright  2012-2017 The MetaModels team.
+ * @author     Sven Baumann <baumann.sv@gmail.com>
+ * @copyright  2012-2018 The MetaModels team.
  * @license    https://github.com/MetaModels/attribute_text/blob/master/LICENSE LGPL-3.0
  * @filesource
  */
@@ -48,7 +49,7 @@ class TextAttributeTypeFactoryTest extends TestCase
      */
     protected function mockMetaModel($tableName, $language, $fallbackLanguage)
     {
-        $metaModel = $this->getMockForAbstractClass('MetaModels\IMetaModel');
+        $metaModel = $this->getMockForAbstractClass(IMetaModel::class);
 
         $metaModel
             ->expects($this->any())
