@@ -13,8 +13,6 @@
  * @package    MetaModels
  * @subpackage AttributeText
  * @author     Christian Schiffler <c.schiffler@cyberspectrum.de>
- * @author     Christopher Boelter <christopher@boelter.eu>
- * @author     Ingolf Steinhardt <info@e-spin.de>
  * @author     David Molineus <david.molineus@netzmacht.de>
  * @copyright  2012-2017 The MetaModels team.
  * @license    https://github.com/MetaModels/attribute_text/blob/master/LICENSE LGPL-3.0
