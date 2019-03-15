@@ -1,0 +1,13 @@
+services:
+    metamodels.attribute_text.factory:
+        class: MetaModels\AttributeTextBundle\Attribute\AttributeTypeFactory
+        arguments:
+            - "@database_connection"
+            - "@metamodels.table_manipulator"
+        tags:
+          - { name: metamodels.attribute_factory }
+
+    metamodels.attribute_text.backend.rgxp_listener:
+        class: MetaModels\AttributeTextBundle\EventListener\BackendEventListener
+        tags:
+            - { name: kernel.event_listener, event: dc-general.view.contao2backend.get-property-options, method: getRgxpOptions }

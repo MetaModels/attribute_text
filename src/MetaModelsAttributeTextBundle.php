@@ -12,19 +12,19 @@
  *
  * @package    MetaModels/attribute_text
  * @author     Christian Schiffler <c.schiffler@cyberspectrum.de>
- * @author     Andreas Isaak <info@andreas-isaak.de>
- * @author     Ingolf Steinhardt <info@e-spin.de>
+ * @author     David Molineus <david.molineus@netzmacht.de>
  * @copyright  2012-2019 The MetaModels team.
  * @license    https://github.com/MetaModels/attribute_text/blob/master/LICENSE LGPL-3.0-or-later
  * @filesource
  */
 
+namespace MetaModels\AttributeTextBundle;
+
+use Symfony\Component\HttpKernel\Bundle\Bundle;
+
 /**
- * Register the templates
+ * This is the bundle class.
  */
-TemplateLoader::addFiles(
-    array
-    (
-        'mm_attr_text' => 'system/modules/metamodelsattribute_text/templates',
-    )
-);
+class MetaModelsAttributeTextBundle extends Bundle
+{
+}
