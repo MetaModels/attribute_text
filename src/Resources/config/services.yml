@@ -11,3 +11,9 @@ services:
         class: MetaModels\AttributeTextBundle\EventListener\BackendEventListener
         tags:
             - { name: kernel.event_listener, event: dc-general.view.contao2backend.get-property-options, method: getRgxpOptions }
+
+    MetaModels\AttributeTextBundle\Migration\AllowNullMigration:
+        arguments:
+            - '@database_connection'
+        tags:
+            - name: contao.migration
