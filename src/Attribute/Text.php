@@ -35,7 +35,7 @@ class Text extends BaseSimple
      */
     public function getSQLDataType()
     {
-        return 'varchar(255) NOT NULL default \'\'';
+        return 'varchar(255) NULL';
     }
 
     /**
@@ -70,5 +70,15 @@ class Text extends BaseSimple
         }
 
         return $arrFieldDef;
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * This is needed for compatibility with MySQL strict mode.
+     */
+    public function serializeData($value)
+    {
+        return $value === '' ? null : $value;
     }
 }
