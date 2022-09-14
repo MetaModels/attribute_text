@@ -24,18 +24,27 @@
 namespace MetaModels\AttributeTextBundle\Attribute;
 
 use MetaModels\Attribute\BaseSimple;
+use MetaModels\Attribute\ISchemaManagedAttribute;
 
 /**
  * This is the MetaModelAttribute class for handling text fields.
  */
-class Text extends BaseSimple
+class Text extends BaseSimple implements ISchemaManagedAttribute
 {
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
+     *
+     * @deprecated Do not use.
      */
     public function getSQLDataType()
     {
-        // Note the maxlength in getFieldDefinition.
+        // @codingStandardsIgnoreStart
+        @trigger_error(
+            'Class "' . __CLASS__ . '" is a managed attribute you should not call "' . __METHOD__ . '".',
+            E_USER_DEPRECATED
+        );
+        // @codingStandardsIgnoreEnd
+
         return 'varchar(255) NULL';
     }
 
