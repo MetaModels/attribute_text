@@ -24,12 +24,11 @@
 namespace MetaModels\AttributeTextBundle\Attribute;
 
 use MetaModels\Attribute\BaseSimple;
-use MetaModels\Attribute\ISchemaManagedAttribute;
 
 /**
  * This is the MetaModelAttribute class for handling text fields.
  */
-class Text extends BaseSimple implements ISchemaManagedAttribute
+class Text extends BaseSimple
 {
     /**
      * {@inheritDoc}

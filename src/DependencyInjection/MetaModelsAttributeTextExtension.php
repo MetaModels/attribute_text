@@ -37,5 +37,9 @@ class MetaModelsAttributeTextExtension extends Extension
     {
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yml');
+
+        $managedSchemaTypeNames = $container->getParameter('metamodels.managed-schema-type-names') ?? [];
+        $managedSchemaTypeNames[] = 'text';
+        $container->setParameter('metamodels.managed-schema-type-names', $managedSchemaTypeNames);
     }
 }
