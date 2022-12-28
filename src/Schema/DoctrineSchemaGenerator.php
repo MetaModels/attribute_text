@@ -45,7 +45,7 @@ class DoctrineSchemaGenerator extends AbstractAttributeTypeSchemaGenerator
     protected function generateAttribute(Table $tableSchema, AttributeInformation $attribute): void
     {
         $this->setColumnData($tableSchema, $attribute->getName(), Types::STRING, [
-            'length' => 255,
+            'length'  => 255,
             'default' => null,
             'notnull' => false,
         ]);
