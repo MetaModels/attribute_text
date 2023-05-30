@@ -21,11 +21,13 @@
  * @filesource
  */
 
+use Contao\System;
+use MetaModels\ContaoFrontendEditingBundle\MetaModelsContaoFrontendEditingBundle;
+
 $GLOBALS['TL_DCA']['tl_metamodel_dcasetting']['metasubselectpalettes']['attr_id']['text'] = [
     'presentation' => [
         'tl_class',
         'be_template',
-        'fe_template',
     ],
     'functions'    => [
         'mandatory',
@@ -57,3 +59,13 @@ $GLOBALS['TL_DCA']['tl_metamodel_dcasetting']['fields']['rgxp'] = [
 ];
 
 $GLOBALS['TL_DCA']['tl_metamodel_dcasetting']['fields']['readonly']['eval']['tl_class'] = 'w50 cbx m12';
+
+// Load configuration for the frontend editing.
+if (\in_array(
+    MetaModelsContaoFrontendEditingBundle::class,
+    System::getContainer()->getParameter('kernel.bundles'),
+    true
+)) {
+    $GLOBALS['TL_DCA']['tl_metamodel_dcasetting']['metasubselectpalettes']['attr_id']['text']['presentation'][] =
+        'fe_template';
+}
