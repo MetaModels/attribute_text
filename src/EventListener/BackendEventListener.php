@@ -3,7 +3,7 @@
 /**
  * This file is part of MetaModels/attribute_text.
  *
- * (c) 2012-2020 The MetaModels team.
+ * (c) 2012-2024 The MetaModels team.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -15,7 +15,7 @@
  * @author     Christopher Boelter <christopher@boelter.eu>
  * @author     Ingolf Steinhardt <info@e-spin.de>
  * @author     David Molineus <david.molineus@netzmacht.de>
- * @copyright  2012-2020 The MetaModels team.
+ * @copyright  2012-2024 The MetaModels team.
  * @license    https://github.com/MetaModels/attribute_text/blob/master/LICENSE LGPL-3.0-or-later
  * @filesource
  */
@@ -23,6 +23,7 @@
 namespace MetaModels\AttributeTextBundle\EventListener;
 
 use ContaoCommunityAlliance\DcGeneral\Contao\View\Contao2BackendView\Event\GetPropertyOptionsEvent;
+use ContaoCommunityAlliance\DcGeneral\DataDefinition\ContainerInterface;
 
 /**
  * Handles event operations on tl_metamodel_dcasetting.
@@ -38,12 +39,17 @@ class BackendEventListener
      */
     public function getRgxpOptions(GetPropertyOptionsEvent $event)
     {
-        if (($event->getEnvironment()->getDataDefinition()->getName() !== 'tl_metamodel_dcasetting')
-            || ($event->getPropertyName() !== 'rgxp')) {
+        $dataDefinition = $event->getEnvironment()->getDataDefinition();
+        assert($dataDefinition instanceof ContainerInterface);
+
+        if (
+            ($dataDefinition->getName() !== 'tl_metamodel_dcasetting')
+            || ($event->getPropertyName() !== 'rgxp')
+        ) {
             return;
         }
 
-        $options = array(
+        $options = [
             'digit'       => 'digit',
             'natural'     => 'natural',
             'alpha'       => 'alpha',
@@ -64,7 +70,7 @@ class BackendEventListener
             'language'    => 'language',
             'google+'     => 'google+',
             'fieldname'   => 'fieldname'
-        );
+        ];
 
         $event->setOptions($options);
     }
