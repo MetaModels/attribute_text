@@ -92,6 +92,7 @@ class Text extends BaseSimple
      */
     public function serializeData($value)
     {
+        assert(\is_string($value) || $value === null);
         return $value === '' ? null : $value;
     }
 }
