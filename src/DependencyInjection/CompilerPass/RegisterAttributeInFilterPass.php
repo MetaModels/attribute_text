@@ -34,5 +34,11 @@ class RegisterAttributeInFilterPass implements CompilerPassInterface
                 ->getDefinition('metamodels.filter_setting_factory.simplelookup')
                 ->addMethodCall('addKnownAttributeType', ['text']);
         }
+
+        if ($container->hasDefinition('metamodels.filter_setting_factory.select')) {
+            $container
+                ->getDefinition('metamodels.filter_setting_factory.select')
+                ->addMethodCall('addKnownAttributeType', ['text']);
+        }
     }
 }
