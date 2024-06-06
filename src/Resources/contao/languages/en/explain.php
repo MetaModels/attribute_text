@@ -3,7 +3,7 @@
 /**
  * This file is part of MetaModels/attribute_text.
  *
- * (c) 2012-2020 The MetaModels team.
+ * (c) 2012-2024 The MetaModels team.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -12,7 +12,7 @@
  *
  * @package    MetaModels/attribute_text
  * @author     Ingolf Steinhardt <info@e-spin.de>
- * @copyright  2012-2020 The MetaModels team.
+ * @copyright  2012-2024 The MetaModels team.
  * @license    https://github.com/MetaModels/attribute_text/blob/master/LICENSE LGPL-3.0-or-later
  * @filesource
  */
@@ -58,9 +58,7 @@ $GLOBALS['TL_LANG']['XPL']['rgxp'][16][0] = 'Locale key';
 $GLOBALS['TL_LANG']['XPL']['rgxp'][16][1] = 'expects a valid locale (e.g. “de-CH”)';
 $GLOBALS['TL_LANG']['XPL']['rgxp'][17][0] = 'Language key';
 $GLOBALS['TL_LANG']['XPL']['rgxp'][17][1] = 'expects a valid language code';
-$GLOBALS['TL_LANG']['XPL']['rgxp'][18][0] = 'Google+ ID';
-$GLOBALS['TL_LANG']['XPL']['rgxp'][18][1] = 'expects a Google+ ID or vanity name';
-$GLOBALS['TL_LANG']['XPL']['rgxp'][19][0] = 'Fieldname';
-$GLOBALS['TL_LANG']['XPL']['rgxp'][19][1] = 'expects a valid field name';
+$GLOBALS['TL_LANG']['XPL']['rgxp'][18][0] = 'Fieldname';
+$GLOBALS['TL_LANG']['XPL']['rgxp'][18][1] = 'expects a valid field name';
 
 
