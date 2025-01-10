@@ -56,7 +56,7 @@ class AllowNullMigrationTest extends TestCase
             ]
         ];
 
-        yield 'attribute select not configured' => [
+        yield 'attribute not configured' => [
             (object) [
                 'requiredTablesExist' => true,
                 'shouldRun'           => false,
@@ -64,7 +64,7 @@ class AllowNullMigrationTest extends TestCase
             ]
         ];
 
-        yield 'attribute select is configured' => [
+        yield 'attribute is configured' => [
             (object) [
                 'requiredTablesExist' => true,
                 'shouldRun'           => false,
@@ -97,14 +97,17 @@ class AllowNullMigrationTest extends TestCase
         $manager    = $this
             ->getMockBuilder(AbstractSchemaManager::class)
             ->setConstructorArgs([$connection, $plattform])
-            ->onlyMethods(['tablesExist', 'introspectTable', 'alterTable'])
+            ->onlyMethods(['listTableNames', 'introspectTable', 'alterTable'])
             ->getMockForAbstractClass();
 
         $manager
             ->expects(self::once())
-            ->method('tablesExist')
-            ->with(['tl_metamodel', 'tl_metamodel_attribute'])
-            ->willReturn($configuration->requiredTablesExist);
+            ->method('listTableNames')
+            ->willReturn(
+                $configuration->requiredTablesExist
+                    ? ['tl_metamodel', 'tl_metamodel_attribute', 'mm_table_1', 'mm_table_2']
+                    : []
+            );
 
         $connection
             ->expects(
@@ -220,7 +223,7 @@ class AllowNullMigrationTest extends TestCase
                 );
 
             $connection
-                ->expects($configuration->shouldRun ? self::exactly(6)  : self::once())
+                ->expects($configuration->shouldRun ? self::exactly(6) : self::once())
                 ->method('createQueryBuilder')
                 ->willReturn($queryBuilder);
         }
@@ -229,7 +232,7 @@ class AllowNullMigrationTest extends TestCase
         if ($configuration->requiredTablesExist && $configuration->attributeConfigured) {
             $columnDefault = $configuration->shouldRun ? 0 : null;
             $tables = [
-                'mm_table_1' => (new Table('mm_table_2', [
+                'mm_table_1' => (new Table('mm_table_1', [
                     (new Column('normal', new StringType()))->setDefault($columnDefault),
                     (new Column('camelCase', new StringType()))->setDefault($columnDefault)
                 ])),
