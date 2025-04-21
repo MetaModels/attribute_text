@@ -31,11 +31,19 @@ use MetaModels\Attribute\BaseSimple;
 class Text extends BaseSimple
 {
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
+     *
+     * @deprecated Do not use.
      */
     public function getSQLDataType()
     {
-        // Note the maxlength in getFieldDefinition.
+        // @codingStandardsIgnoreStart
+        @trigger_error(
+            'Class "' . __CLASS__ . '" is a managed attribute you should not call "' . __METHOD__ . '".',
+            E_USER_DEPRECATED
+        );
+        // @codingStandardsIgnoreEnd
+
         return 'varchar(255) NULL';
     }
 
@@ -84,6 +92,7 @@ class Text extends BaseSimple
      */
     public function serializeData($value)
     {
+        assert(\is_string($value) || $value === null);
         return $value === '' ? null : $value;
     }
 }
